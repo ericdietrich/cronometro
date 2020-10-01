@@ -1,0 +1,16 @@
+body {
+    background: #b39f9d;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: initial;
+}
+
+.active {
+    background: #011d0d;
+}
+
