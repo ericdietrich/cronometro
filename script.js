@@ -1,13 +1,6 @@
-// Mude a cor da tela para azul e depois para vermelho a cada 2s.
-
-
-
-
-
-// Crie um cronometro utilizando o setInterval. Deve ser possível
-// iniciar, pausar e resetar (duplo clique no pausar).
 const start = document.querySelector('.start');
 const pause = document.querySelector('.pause');
+const reset = document.querySelector('.reset');
 const hour = document.querySelector('.hour');
 const minute = document.querySelector('.minute');
 const second = document.querySelector('.second');
@@ -18,17 +11,30 @@ let timer = {
     hour: 0
 }
 
-second.innerText = `0${timer.second}`;
-minute.innerText = `0${timer.minute}: `;
-hour.innerText = `0${timer.hour}:`;;
+
 
 start.addEventListener('click', startTimer);
 pause.addEventListener('click', pauseTimer);
-pause.addEventListener('dblclick', resetTimer);
+reset.addEventListener('click', resetTimer);
 
 let secondCounter;
 let minuteCounter;
 let hourCounter;
+
+second.innerText = `0${timer.second}`;
+minute.innerText = `0${timer.minute}`;
+hour.innerText = `0${timer.hour}`;;
+
+function initTimer() {
+    timer.second = 0;
+    timer.minute = 0;
+    timer.hour = 0;
+    second.innerText = `0${timer.second}`;
+    minute.innerText = `0${timer.minute}`;
+    hour.innerText = `0${timer.hour}`;;
+};
+
+initTimer();
 
 function startTimer() {
     //seconds
@@ -49,13 +55,13 @@ function startTimer() {
         } else {
             timer.minute = 0
         }
-        timer.minute < 10 ? minute.innerText = `0${timer.minute}: ` : minute.innerText = `${timer.minute}: `;
+        timer.minute < 10 ? minute.innerText = `0${timer.minute}` : minute.innerText = `${timer.minute}`;
     }, 60000);
 
     //hours
     hourCounter = setInterval(() => {
         timer.hour++;
-        timer.hour < 10 ? hour.innerText = `0${timer.hour}: ` : hour.innerText = `${timer.hour}: `;
+        timer.hour < 10 ? hour.innerText = `0${timer.hour}` : hour.innerText = `${timer.hour}`;
     }, 3600000);
 
     start.setAttribute('disabled', '')
@@ -70,6 +76,11 @@ function pauseTimer() {
 
 
 function resetTimer() {
+    initTimer();
+    clearInterval(secondCounter);
+    clearInterval(minuteCounter);
+    clearInterval(hourCounter);
+    start.removeAttribute('disabled');
 }
 
 
