@@ -28,10 +28,13 @@ body {
 
 .buttons { 
     width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .button {
-    width: 160px;
+    width: 150px;
     font-family: 'Varela Round';
     font-weight: bold;
     letter-spacing: 0.3rem;
@@ -39,13 +42,25 @@ body {
     padding: 5px 15px;
     font-size: 1.4rem;
     background: gray;
+    border-radius: 4px 4px 8px 8px;
+    border: none;
+    border-bottom: .5px solid #535353;
+    box-shadow: 0 8px #3f3f3f;
 }
 
-.button::disabled {
-   
+.button:active {
+    box-shadow: 0 4px #103f5a;
+   transform: translateY(4px);
 }
 
+.button:focus {
+    outline: 0; 
+}
 
-
+.button:disabled {
+    background: #474747;
+    opacity: 0.4;
+    box-shadow:  #222222;
+}
 
 
