@@ -63,4 +63,22 @@ body {
     box-shadow:  #222222;
 }
 
+@media (max-width: 700px){
+    .stopwatch {
+        font-size: 4rem;
+        width: 400px;
+    }
 
+    .stopwatch span {
+        width: 60px;
+    }
+
+    .buttons {
+        width: 400px;
+        flex-direction: column;
+    }
+
+    .button {
+        margin-top: 50px;
+    }
+}
